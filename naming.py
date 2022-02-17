@@ -1,27 +1,25 @@
-
 while True:
 
-    sentence = input('file name?: ')
+    sentence = input("file name?: ")
+    case = input("lower/upper/title --> L/U/T ?")
 
-    words = sentence.split()
-    words_with_hyphen = []
 
-    i = 0
-    while i < len(words)-1:
-        words[i] += '-'
-        words_with_hyphen.append(words[i])
-        i += 1
+    def lower(name: str):
+        return name.replace(" ", "-").lower()
+    def upper(name: str):
+        return name.replace(" ", "-").upper()
+    def title(name: str):
+        return name.replace(" ", "-").title()
 
-    sentence_with_hyphen = ''
-    for i in words_with_hyphen:
-        sentence_with_hyphen += i 
+    if case == "L":
+        print(lower(sentence))
+    elif case == "U":
+        print(upper(sentence))
+    else:
+        print(title(sentence))
 
-    sentence_with_hyphen += words[-1] 
+    response = input("Quit y/n?: ")
 
-    print(sentence_with_hyphen)
-
-    response = input('Quit y/n?: ')
-
-    if response == 'y':
+    if response == "y":
         break
 
